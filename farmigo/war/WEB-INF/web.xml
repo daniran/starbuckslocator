@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>dataServlet</servlet-name>
+		<servlet-class>com.dannyran.test.server.DataServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet>
+		<display-name>Remote API Servlet</display-name>
+		<servlet-name>RemoteApiServlet</servlet-name>
+		<servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RemoteApiServlet</servlet-name>
+		<url-pattern>/remote_api</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>dataServlet</servlet-name>
+		<url-pattern>/farmigo/data</url-pattern>
+	</servlet-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>Farmigo.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
